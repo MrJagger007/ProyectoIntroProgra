@@ -206,7 +206,6 @@ public class Menu {
                     break;
                 case "5":
                     // Llama al método MostrarUsuarios de Registro_Clientes_Usuarios
-                    informacionCatalogos.MostrarCategoria();
                     break;
                 case "6":
                     // Llama al método MostrarUsuarios de Registro_Clientes_Usuarios
