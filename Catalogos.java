@@ -23,7 +23,6 @@ public class Catalogos {
         for (Sucursal sucursal : sucursales) {
             if (sucursal != null) {
                 informacionSucursales.append("Nombre: ").append(sucursal.getNombre()).append("\n");
-                // ... Otros detalles de la sucursal
             }
         }
         JOptionPane.showMessageDialog(null, "Las sucursales registradas son:\n \n" + informacionSucursales, "Sucursales registradas", JOptionPane.INFORMATION_MESSAGE);
@@ -42,7 +41,6 @@ public class Catalogos {
         for (CategoriaEquipo categoria : categorias) {
             if (categoria != null) {
                 informacionCategorias.append("Nombre de la categoría: ").append(categoria.getNombre()).append("\n");
-                // ... Otros detalles de la categoría
             }
         }
         JOptionPane.showMessageDialog(null, "Las categorías registradas son:\n \n" + informacionCategorias, "Categorías registradas", JOptionPane.INFORMATION_MESSAGE);
