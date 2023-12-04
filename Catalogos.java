@@ -74,16 +74,39 @@ public class Catalogos {
         return totalCategorias;
     }
 
-    private void llenarDatosSucursal(Sucursal sucursal) {
-        // Llenar los datos de la sucursal
-        // Puedes utilizar JOptionPane o cualquier otro método de entrada de datos
+private void llenarDatosSucursal(Sucursal sucursal) {
+    sucursal.setNombre(JOptionPane.showInputDialog(null, "Ingrese el nombre de la sucursal:", "Nombre de la Sucursal", JOptionPane.QUESTION_MESSAGE));
+    sucursal.setCiudad(JOptionPane.showInputDialog(null, "Ingrese la ciudad de la sucursal:", "Ciudad de la Sucursal", JOptionPane.QUESTION_MESSAGE));
+    sucursal.setDireccion(JOptionPane.showInputDialog(null, "Ingrese la dirección de la sucursal:", "Dirección de la Sucursal", JOptionPane.QUESTION_MESSAGE));
+    sucursal.setTelefono(JOptionPane.showInputDialog(null, "Ingrese el teléfono de la sucursal:", "Teléfono de la Sucursal", JOptionPane.QUESTION_MESSAGE));
+    sucursal.setCorreo(JOptionPane.showInputDialog(null, "Ingrese el correo de la sucursal:", "Correo de la Sucursal", JOptionPane.QUESTION_MESSAGE));
+
+    // Bucle para garantizar que se ingrese "Activo" o "Inactivo"
+    while (true) {
+        String estadoInput = JOptionPane.showInputDialog(null, "Establezca el estado de la sucursal (Activo/Inactivo):", "Estado de la Sucursal", JOptionPane.QUESTION_MESSAGE);
+
+        if (estadoInput.equals("Activo") || estadoInput.equals("Inactivo")) {
+            sucursal.setEstado(estadoInput);
+            break;
+        } else {
+            JOptionPane.showMessageDialog(null, "Error: Por favor, ingrese 'Activo' o 'Inactivo'.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
+}
 
-    private void llenarDatosCategoria(CategoriaEquipo categoria) {
-        // Llenar los datos de la categoría
-        // Puedes utilizar JOptionPane o cualquier otro método de entrada de datos
+private void llenarDatosCategoria(CategoriaEquipo categoria) {
+    categoria.setNombre(JOptionPane.showInputDialog(null, "Ingrese el nombre de la categoría:", "Nombre de la Categoría", JOptionPane.QUESTION_MESSAGE));
+    categoria.setCaracteristicas(JOptionPane.showInputDialog(null, "Ingrese las características de la categoría:", "Características de la Categoría", JOptionPane.QUESTION_MESSAGE));
+
+    // Bucle para garantizar que se ingrese "Activo" o "Inactivo"
+    while (true) {
+        String estadoInput = JOptionPane.showInputDialog(null, "Establezca el estado de la categoría (Activo/Inactivo):", "Estado de la Categoría", JOptionPane.QUESTION_MESSAGE);
+
+        if (estadoInput.equals("Activo") || estadoInput.equals("Inactivo")) {
+            categoria.setEstado(estadoInput);
+            break;
+        } else {
+            JOptionPane.showMessageDialog(null, "Error: Por favor, ingrese 'Activo' o 'Inactivo'.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
-
-    // ... Otros métodos según las necesidades de tu aplicación
-
 }
