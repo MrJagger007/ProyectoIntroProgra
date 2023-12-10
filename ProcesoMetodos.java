@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 public class ProcesoMetodos {
 
+    //------ MÉTODOS PARA ALMACENAR LOS DATOS DE LOS USUARIOS FIXTECH
     // Arreglo para almacenar información de los usuarios de Fix Tech.
     public Usuarios_FixTech datosUsuarios[] = new Usuarios_FixTech[15];
 
@@ -15,7 +16,7 @@ public class ProcesoMetodos {
     public void AgregarUsuarios() {
 
         //De momento se establece que el total de usuario que podrá almacenar el arreglo será de 15.
-        if (totalUsuarios < 15) {
+        if (totalUsuarios < datosUsuarios.length) {
 
             // Creamos una nueva instancia de Usuarios_FixTech para luego asociarla con datosUsuarios
             Usuarios_FixTech llenarDatos = new Usuarios_FixTech();
@@ -135,14 +136,14 @@ public class ProcesoMetodos {
         JOptionPane.showMessageDialog(null, "Los usuarios registrados son:\n \n" + informacionUsuarios, "Usuarios registrados", JOptionPane.INFORMATION_MESSAGE);
 
     }
-
+    //------ MÉTODOS PARA ALMACENAR LOS DATOS DE LOS CLIENTES FIXTECH
     //Esta parte no se va a comentar dado que sigue exactamente la misma lógica que se usó para Usuarios_FixTech
     private Clientes_FixTech datosClientes[] = new Clientes_FixTech[30];
     private int totalClientes = 0;
 
     public void AgregarClientes() {
 
-        if (totalClientes < 30) {
+        if (totalClientes < datosClientes.length) {
 
             Clientes_FixTech llenarDatos = new Clientes_FixTech();
             llenarDatos.setName(JOptionPane.showInputDialog(null, "Escriba el nombre del cliente:", "Nombre del Cliente", JOptionPane.QUESTION_MESSAGE));
@@ -242,7 +243,8 @@ public void EliminarCliente() {
         JOptionPane.showMessageDialog(null, "Los clientes registrados son:\n \n" + informacionClientes, "Clientes registrados", JOptionPane.INFORMATION_MESSAGE);
 
     }
-
+    
+    //------ MÉTODOS PARA ALMACENAR LOS DATOS DE LAS SUCURSALES
     private Sucursales datosSucursales[] = new Sucursales[5];
     private int totalSucursales = 0;
 
@@ -250,7 +252,7 @@ public void EliminarCliente() {
     public void AgregarSucursales() {
 
         // De momento se establece que el total de sucursales que podrá almacenar el arreglo será de 5.
-        if (totalSucursales < 5) {
+        if (totalSucursales < datosSucursales.length) {
 
             // Creamos una nueva instancia de Sucursales para luego asociarla con datosSucursales.
             Sucursales llenarDatos = new Sucursales();
@@ -377,6 +379,7 @@ public void EliminarCliente() {
 
         JOptionPane.showMessageDialog(null, "Las sucursales registradas son:\n \n" + informacionSucursales, "Sucursales registradas", JOptionPane.INFORMATION_MESSAGE);
     }
+    //------ MÉTODOS PARA ALMACENAR LOS DATOS DE LAS CATEGORIAS
 
     //Métodos de categorías de equipos
     private Categorias_Equipos datosCategorias[] = new Categorias_Equipos[5];
@@ -384,7 +387,7 @@ public void EliminarCliente() {
 
     public void AgregarInformacionCategoria() {
 
-        if (totalCategorias < 5) {
+        if (totalCategorias < datosCategorias.length) {
 
             Categorias_Equipos llenarDatos = new Categorias_Equipos();
 
@@ -497,13 +500,13 @@ public void EliminarCliente() {
 
         JOptionPane.showMessageDialog(null, "Las categorías registradas son:\n \n" + informacionCategorias, "Categorías registradas", JOptionPane.INFORMATION_MESSAGE);
     }
-
+//------ MÉTODOS PARA ALMACENAR LOS DATOS DE LOS EQUIPOS
     private Equipos datosEquipos[] = new Equipos[5];
     private int totalEquipos = 0;
 
     // En la clase donde está definido el menú Equipos
     public void AgregarNuevoEquipo() {
-        if (totalEquipos < 5) {
+        if (totalEquipos < datosEquipos.length) {
 
             Equipos llenarDatos = new Equipos();
 
@@ -754,6 +757,7 @@ public void EliminarCliente() {
         JOptionPane.showMessageDialog(null, "Los equipos registrados son:\n \n" + informacionEquipos, "Equipos registrados", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    //MÉTODOS PARA ALMACENAR LOS DATOS DE LAS FACTURAS
     public Facturacion datosFacturacion[] = new Facturacion[15];
     private int totalFacturas = 0;
 
