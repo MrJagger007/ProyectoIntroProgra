@@ -43,7 +43,8 @@ public class Menu {
                     accionesFacturacion();
                     break;
                 case "7":
-                    // Cajas
+                    //Se llama en el menú principal el método MostrarIngresosDía realizado en procesoMetodos
+                    procesoMetodos.MostraringresosDía();
                     break;
                 case "8":
                     JOptionPane.showMessageDialog(null, "Saliendo del programa. ¡Hasta luego!", "Salir", JOptionPane.INFORMATION_MESSAGE);
@@ -271,16 +272,17 @@ public class Menu {
 
             switch (opcionFacturacion) {
                 case "1":
-                    // Lógica para nueva factura
+                    // Llamamos al método NuevaFactura de la clase ProcesoMetodos
                     procesoMetodos.NuevaFactura();
                     break;
                 case "2":
-                    // Lógica para editar factura
-                    
+                    // Llamamos al método EditarFactura de la clase ProcesoMetodos
+                    procesoMetodos.EditarFactura();
+
                     break;
                 case "3":
-                    // Lógica para anular factura
-                    
+                    // Llamamos al método AnularFactura de la clase ProcesoMetodos
+                    procesoMetodos.AnularFactura();
                     break;
                 case "4":
                     // Llamamos al método MostrarFactura de la clase ProcesoMetodos
@@ -293,4 +295,5 @@ public class Menu {
             }
         }
     }
+        
 }
