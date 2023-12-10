@@ -789,6 +789,55 @@ public class ProcesoMetodos {
 
     }
 
+    //Método para editar factura
+    public void EditarFactura() {
+        // Se le solicita al usuario ingresar el nombre del cliente de la factura a editar.
+        String clienteEditar = JOptionPane.showInputDialog("Ingrese el nombre del cliente de la factura a editar:");
+
+        // Buscamos la factura en el arreglo.
+        for (int ediFactura = 0; ediFactura < totalFacturas; ediFactura++) {
+            if (datosFacturacion[ediFactura] != null && datosFacturacion[ediFactura].getClientName().equals(clienteEditar)) {
+                // Mensaje informativo.
+                JOptionPane.showMessageDialog(null, "Estimado usuario, esta opción edita los datos de la factura.", "Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
+
+                // Lógica para editar los datos de la factura
+                String nuevaDescripcion = JOptionPane.showInputDialog(null, "Ingrese la nueva descripción de la reparación:", "Editar Factura", JOptionPane.QUESTION_MESSAGE);
+                String nuevaHora = JOptionPane.showInputDialog(null, "Ingrese la nueva hora (hh:mm) de la compra:", "Editar Factura", JOptionPane.QUESTION_MESSAGE);
+                String nuevaFecha = JOptionPane.showInputDialog(null, "Ingrese la nueva fecha (dd/mm/hhhh) de la compra:", "Editar Factura", JOptionPane.QUESTION_MESSAGE);
+                double nuevoMonto = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el nuevo monto de la reparación:", "Editar Factura", JOptionPane.QUESTION_MESSAGE));
+
+                // Actualizamos los datos de la factura
+                datosFacturacion[ediFactura].setFixDescription(nuevaDescripcion);
+                datosFacturacion[ediFactura].setHour(nuevaHora);
+                datosFacturacion[ediFactura].setDate(nuevaFecha);
+                datosFacturacion[ediFactura].setTotalToPay(nuevoMonto);
+
+                JOptionPane.showMessageDialog(null, "Factura actualizada correctamente.", "Actualización de Factura", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, "No se encontró una factura para el cliente especificado. Inténtelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    //Método para anular las facturas
+    public void AnularFactura() {
+
+        //se busca el cliente al cual se le desea cancelar la factura
+        String clienteAnular = JOptionPane.showInputDialog(null, "Ingrese el nombre del cliente de la factura a anular:", "Anular Factura", JOptionPane.QUESTION_MESSAGE);
+        int anular;
+        for (anular = 0; anular < totalFacturas; anular++) {
+            if (datosFacturacion[anular] != null && datosFacturacion[anular].getClientName().equals(clienteAnular)) {
+                // Anular la factura
+                datosFacturacion[anular] = null;
+                JOptionPane.showMessageDialog(null, "Factura anulada correctamente.", "Anulación de Factura", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, "No se encontró una factura para el cliente especificado.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
     public void mostrarFacturas() {
         int datosFactura;
         String informacionFacturas = "";
@@ -808,7 +857,7 @@ public class ProcesoMetodos {
     }
 
 //METODOS DE CAJAS
-    public void MostraringresosDía() {
+    public void MostraringresosDia() {
         Facturacion infoFecha = new Facturacion();
         String fechaCompleta = JOptionPane.showInputDialog(null, "Ingrese la fecha para mostrar los ingresos del día (dd/mm/hhhh):", "Ingresos del Día", JOptionPane.QUESTION_MESSAGE);
 
