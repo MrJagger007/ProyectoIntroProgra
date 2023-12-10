@@ -43,7 +43,7 @@ public class Menu {
                     accionesFacturacion();
                     break;
                 case "7":
-                    // Cajas
+                    procesoMetodos.MostraringresosDia();
                     break;
                 case "8":
                     JOptionPane.showMessageDialog(null, "Saliendo del programa. ¡Hasta luego!", "Salir", JOptionPane.INFORMATION_MESSAGE);
@@ -276,11 +276,13 @@ public class Menu {
                     break;
                 case "2":
                     // Lógica para editar factura
-                    
+                    procesoMetodos.EditarFactura();
+
                     break;
                 case "3":
-                    // Lógica para anular factura
-                    
+                    // Llamamos al método MostrarFactura de la clase ProcesoMetodos
+                    procesoMetodos.AnularFactura();
+
                     break;
                 case "4":
                     // Llamamos al método MostrarFactura de la clase ProcesoMetodos
@@ -293,4 +295,5 @@ public class Menu {
             }
         }
     }
+        
 }
