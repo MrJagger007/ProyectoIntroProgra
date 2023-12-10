@@ -65,7 +65,7 @@ public class Equipos {
         this.statusName = statusName;
     }
 
-    /* Realizar revisión a esta parte dado que no se logra llamar a datosUsuarios en la clase Catálogos
+    // Realizar revisión a esta parte dado que no se logra llamar a datosUsuarios en la clase Catálogos
     public boolean existeUsuario(String nombreUsuario, Usuarios_FixTech[] datosUsuarios) {
      for (Usuarios_FixTech usuario : datosUsuarios) {
             if (usuario != null && usuario.getUsername().equals(nombreUsuario)) {
@@ -73,7 +73,7 @@ public class Equipos {
             }
         }
         return false; // Usuario no encontrado
-    }*/
+    }
 
     // Método para validar la existencia de una categoría en el arreglo de Categorias_Equipos
     public boolean existeCategoria(String nombreCategoria, Categorias_Equipos[] datosCategorias) {
