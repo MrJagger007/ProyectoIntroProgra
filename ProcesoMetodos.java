@@ -11,6 +11,8 @@ public class ProcesoMetodos {
     // Se desarrolla un contador. No vamos a trabajar con "For" porque se tendrían que llenar una cantidad de datos
     // específicos a la vez, con el contador hacemos que el usuario repita el proceso si asi lo desea.
     private int totalUsuarios = 0;
+    //variables para almacenar los ingresos del día
+    private double ingresosDelDia = 0.0;
 
     // Método para agregar nuevos usuarios
     public void AgregarUsuarios() {
@@ -31,7 +33,7 @@ public class ProcesoMetodos {
             while (true) {
                 String estadoInput = JOptionPane.showInputDialog(null, "Establezca el estado del usuario (Activo/Inactivo):", "Estado del Usuario", JOptionPane.QUESTION_MESSAGE);
 
-                if (estadoInput.equals("Activo") || estadoInput.equals("Inactivo")) {
+                if (estadoInput.equals("Activo") || estadoInput.equals("activo") || estadoInput.equals("Inactivo") || estadoInput.equals("inactivo")) {
                     llenarDatos.setStatusName(estadoInput);
                     break;
                 } else {
@@ -130,10 +132,10 @@ public class ProcesoMetodos {
 
         //En este "For" obtenemos los "Get" de la información que anteriormente introdujimos en los "Set"
         for (datos = 0; datos < totalUsuarios; datos++) {
-            informacionUsuarios = informacionUsuarios + datosUsuarios[datos].getName() + "  " + datosUsuarios[datos].getLastname()
-                    + " \n  - ESTADO: " + datosUsuarios[datos].getStatusName() + " \n  - Username: " + datosUsuarios[datos].getUsername() + "\n\n";
+            informacionUsuarios = informacionUsuarios + "\n - NOMBRE COMPLETO: " + datosUsuarios[datos].getName() + " " + datosUsuarios[datos].getLastname()
+                    + " \n  - ESTADO: " + datosUsuarios[datos].getStatusName() + " \n  - USERNAME: " + datosUsuarios[datos].getUsername() + "\n\n";
         }
-        JOptionPane.showMessageDialog(null, "Los usuarios registrados son:\n \n" + informacionUsuarios, "Usuarios registrados", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Los usuarios registrados son: \n\n" + informacionUsuarios, "Usuarios registrados", JOptionPane.INFORMATION_MESSAGE);
 
     }
     //------ MÉTODOS PARA ALMACENAR LOS DATOS DE LOS CLIENTES FIXTECH
@@ -153,7 +155,7 @@ public class ProcesoMetodos {
             while (true) {
                 String estadoInput = JOptionPane.showInputDialog(null, "Establezca el estado del cliente (Activo/Inactivo):", "Estado del Cliente", JOptionPane.QUESTION_MESSAGE);
 
-                if (estadoInput.equals("Activo") || estadoInput.equals("Inactivo")) {
+                if (estadoInput.equals("Activo") || estadoInput.equals("activo") || estadoInput.equals("Inactivo") || estadoInput.equals("inactivo")) {
                     llenarDatos.setStatus(estadoInput);
                     break;
                 } else {
@@ -166,7 +168,7 @@ public class ProcesoMetodos {
         }
     }
 
-public void EliminarCliente() {
+    public void EliminarCliente() {
         String clienteAEliminar = JOptionPane.showInputDialog("Ingrese el nombre del cliente a eliminar:");
 
         for (int indiceUsuario = 0; indiceUsuario < totalClientes; indiceUsuario++) {
@@ -215,8 +217,8 @@ public void EliminarCliente() {
             if (datosClientes[elemento] != null && datosClientes[elemento].getName().equals(nombreEditar)) {
 
                 // Pedimos la nueva información
-                String nuevoNombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre del cliente:");
-                String nuevoApellido = JOptionPane.showInputDialog("Ingrese el nuevo apellido del cliente:");
+                String nuevoNombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre del cliente: ");
+                String nuevoApellido = JOptionPane.showInputDialog("Ingrese el nuevo apellido del cliente: ");
                 String nuevoEstado = JOptionPane.showInputDialog("Ingrese el nuevo estado del cliente (Activo/Inactivo):");
 
                 // Actualizamos la información del cliente
@@ -237,13 +239,13 @@ public void EliminarCliente() {
         int datos;
         String informacionClientes = "";
         for (datos = 0; datos < totalClientes; datos++) {
-            informacionClientes = informacionClientes + datosClientes[datos].getName() + "  " + datosClientes[datos].getLastname()
+            informacionClientes = informacionClientes + "\n - NOMBRE CLIENTE: " + datosClientes[datos].getName() + " " + datosClientes[datos].getLastname()
                     + " \n  - ESTADO: " + datosClientes[datos].getStatus() + "\n\n";
         }
-        JOptionPane.showMessageDialog(null, "Los clientes registrados son:\n \n" + informacionClientes, "Clientes registrados", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Los clientes registrados son:\n\n" + informacionClientes, "Clientes registrados", JOptionPane.INFORMATION_MESSAGE);
 
     }
-    
+
     //------ MÉTODOS PARA ALMACENAR LOS DATOS DE LAS SUCURSALES
     private Sucursales datosSucursales[] = new Sucursales[5];
     private int totalSucursales = 0;
@@ -268,7 +270,7 @@ public void EliminarCliente() {
             while (true) {
                 String estadoInput = JOptionPane.showInputDialog(null, "Establezca el estado de la sucursal (Activo/Inactivo):", "Estado de la Sucursal", JOptionPane.QUESTION_MESSAGE);
 
-                if (estadoInput.equals("Activo") || estadoInput.equals("Inactivo")) {
+                if (estadoInput.equals("Activo") || estadoInput.equals("activo") || estadoInput.equals("Inactivo") || estadoInput.equals("inactivo")) {
                     llenarDatos.setStatusName(estadoInput);
                     break;
                 } else {
@@ -372,12 +374,12 @@ public void EliminarCliente() {
 
         // En este bucle "for" obtenemos los "Get" de la información que anteriormente introdujimos en los "Set".
         for (datos = 0; datos < totalSucursales; datos++) {
-            informacionSucursales = informacionSucursales + datosSucursales[datos].getName() + " \nCiudad: " + datosSucursales[datos].getCity()
-                    + "\nDirección: " + datosSucursales[datos].getAddress() + "\nTeléfono: " + datosSucursales[datos].getPhone()
-                    + "\nCorreo Electrónico: " + datosSucursales[datos].getEmail() + " \nESTADO: " + datosSucursales[datos].getStatusName() + "\n\n";
+            informacionSucursales = informacionSucursales + "\n - NOMBRE SUCURSAL: " + datosSucursales[datos].getName() + " \n - Ciudad: " + datosSucursales[datos].getCity()
+                    + "\n - DIRECCIÓN: " + datosSucursales[datos].getAddress() + "\n - TELÉFONO: " + datosSucursales[datos].getPhone()
+                    + "\n - CORREO ELECTRÓNICO: " + datosSucursales[datos].getEmail() + " \n - ESTADO: " + datosSucursales[datos].getStatusName() + "\n\n";
         }
 
-        JOptionPane.showMessageDialog(null, "Las sucursales registradas son:\n \n" + informacionSucursales, "Sucursales registradas", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Las sucursales registradas son: \n\n" + informacionSucursales, "Sucursales registradas", JOptionPane.INFORMATION_MESSAGE);
     }
     //------ MÉTODOS PARA ALMACENAR LOS DATOS DE LAS CATEGORIAS
 
@@ -397,7 +399,7 @@ public void EliminarCliente() {
             while (true) {
                 String estadoInput = JOptionPane.showInputDialog(null, "Establezca el estado de la categoría (Activo/Inactivo):", "Estado de la categoría", JOptionPane.QUESTION_MESSAGE);
 
-                if (estadoInput.equals("Activo") || estadoInput.equals("Inactivo")) {
+                if (estadoInput.equals("Activo") || estadoInput.equals("activo") || estadoInput.equals("Inactivo") || estadoInput.equals("inactivo")) {
                     llenarDatos.setCategoryStatus(estadoInput);
                     break;
                 } else {
@@ -473,7 +475,7 @@ public void EliminarCliente() {
                 String nuevoEstado = JOptionPane.showInputDialog("Ingrese el nuevo estado de la categoría (Activo/Inactivo):");
 
                 // Verificamos que el estado ingresado sea válido.
-                if (nuevoEstado.equals("Activo") || nuevoEstado.equals("Inactivo")) {
+                if (nuevoEstado.equals("Activo") && nuevoEstado.equals("activo") || nuevoEstado.equals("Inactivo") && nuevoEstado.equals("inactivo")) {
                     // Actualizamos el estado de la categoría.
                     datosCategorias[elemento].setCategoryStatus(nuevoEstado);
                     JOptionPane.showMessageDialog(null, "Estado de la categoría actualizado correctamente.", "Actualización de Estado de Categoría", JOptionPane.INFORMATION_MESSAGE);
@@ -494,8 +496,8 @@ public void EliminarCliente() {
 
         // En este bucle "for" obtenemos los "Get" de la información que anteriormente introdujimos en los "Set".
         for (datos = 0; datos < totalCategorias; datos++) {
-            informacionCategorias = informacionCategorias + "Nombre de la categoría: " + datosCategorias[datos].getCategoryName() + " \nCaracteristicas: " + datosCategorias[datos].getAtributes()
-                    + "\nEstado de categoría: " + datosCategorias[datos].getCategoryStatus() + "\n\n";
+            informacionCategorias = informacionCategorias + "\n - NOMBRE CATEGORÍA: " + datosCategorias[datos].getCategoryName() + "\n - CARACTERÍSTICAS: " + datosCategorias[datos].getAtributes()
+                    + "\n - ESTADO DE CATEGORÍA: " + datosCategorias[datos].getCategoryStatus() + "\n\n";
         }
 
         JOptionPane.showMessageDialog(null, "Las categorías registradas son:\n \n" + informacionCategorias, "Categorías registradas", JOptionPane.INFORMATION_MESSAGE);
@@ -594,8 +596,7 @@ public void EliminarCliente() {
                         JOptionPane.showMessageDialog(null, "Error: Por favor, ingrese un estado válido (Ingresado/En reparación/Reparado/Entregado).", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-                
-                
+
                 // Lógica para editar la categoría del equipo
                 while (true) {
                     String nombreCategoria = JOptionPane.showInputDialog(null, "Escriba el nombre de la nueva categoría del equipo:", "Categoría del equipo", JOptionPane.QUESTION_MESSAGE);
@@ -606,8 +607,7 @@ public void EliminarCliente() {
                         JOptionPane.showMessageDialog(null, "Error: La categoría no existe. Por favor, ingrese una categoría válida.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-                
-               
+
                 // Lógica para editar la sucursal del equipo
                 while (true) {
                     String nombreSucursal = JOptionPane.showInputDialog(null, "Escriba el nombre de la nueva sucursal de procedencia del equipo:", "Sucursal de procedencia", JOptionPane.QUESTION_MESSAGE);
@@ -618,7 +618,7 @@ public void EliminarCliente() {
                         JOptionPane.showMessageDialog(null, "Error: La sucursal no existe. Por favor, ingrese una sucursal válida.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-                
+
                 JOptionPane.showMessageDialog(null, "Equipo actualizado correctamente.", "Actualización de Equipo", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
@@ -749,15 +749,15 @@ public void EliminarCliente() {
 
         // En este bucle "for" obtenemos los "Get" de la información que anteriormente introdujimos en los "Set".
         for (datos = 0; datos < totalEquipos; datos++) {
-            informacionEquipos = informacionEquipos + "Nombre del equipo: " + datosEquipos[datos].getName() + " \nDescripción: " + datosEquipos[datos].getDescription()
-                    + "\nEstado: " + datosEquipos[datos].getStatusName() + "\nCategoría: " + datosEquipos[datos].getCategory()
-                    + "\nSucursal de procedencia: " + datosEquipos[datos].getSucursal() +"\nEmpleado a cargo: " +datosEquipos[datos].getUser()+  "\n\n";
+            informacionEquipos = informacionEquipos + "\n - NOMBRE EQUIPO: " + datosEquipos[datos].getName() + "\n - DESCRIPCIÓN: " + datosEquipos[datos].getDescription()
+                    + "\n - ESTADO: " + datosEquipos[datos].getStatusName() + "\n - CATEGORÍA: " + datosEquipos[datos].getCategory()
+                    + "\n - SUCURSALES DE PROCEDENCIA: " + datosEquipos[datos].getSucursal() + "\n - EMPLEADO A CARGO: " + datosEquipos[datos].getUser() + "\n\n";
         }
 
         JOptionPane.showMessageDialog(null, "Los equipos registrados son:\n \n" + informacionEquipos, "Equipos registrados", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    //MÉTODOS PARA ALMACENAR LOS DATOS DE LAS FACTURAS
+    //METODOS DE FACTURACIÓN
     public Facturacion datosFacturacion[] = new Facturacion[15];
     private int totalFacturas = 0;
 
@@ -771,8 +771,9 @@ public void EliminarCliente() {
             if (nuevaFactura.existeCliente(nombreCliente, datosClientes)) {
                 nuevaFactura.setClientName(nombreCliente);
                 nuevaFactura.setFixDescription(JOptionPane.showInputDialog(null, "Ingrese la descripción de la reparación:", "Nueva Factura", JOptionPane.QUESTION_MESSAGE));
-                nuevaFactura.setHour(JOptionPane.showInputDialog(null, "Ingrese la hora de la compra:", "Nueva Factura", JOptionPane.QUESTION_MESSAGE));
-                nuevaFactura.setDate(JOptionPane.showInputDialog(null, "Ingrese la fecha de la compra:", "Nueva Factura", JOptionPane.QUESTION_MESSAGE));
+                nuevaFactura.setHour(JOptionPane.showInputDialog(null, "Ingrese la hora (hh:mm) de la compra ", "Nueva Factura", JOptionPane.QUESTION_MESSAGE));
+                nuevaFactura.setDate(JOptionPane.showInputDialog(null, "Ingrese la fecha (dd/mm/hhhh) de la compra: ", "Nueva Factura", JOptionPane.QUESTION_MESSAGE));
+                nuevaFactura.setTotalToPay(Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el costo de la reparación: ", "Nueva Factura", JOptionPane.QUESTION_MESSAGE)));
 
                 // Agregar la nueva factura al arreglo
                 datosFacturacion[totalFacturas] = nuevaFactura;
@@ -784,6 +785,7 @@ public void EliminarCliente() {
                 JOptionPane.showMessageDialog(null, "Error: El cliente no existe. Por favor, ingrese un cliente válido.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+        ingresosDelDia = ingresosDelDia + nuevaFactura.getTotalToPay();
 
     }
 
@@ -794,14 +796,36 @@ public void EliminarCliente() {
         // En este bucle "for" obtenemos los "Get" de la información que anteriormente introdujimos en los "Set".
         for (datosFactura = 0; datosFactura < totalFacturas; datosFactura++) {
             informacionFacturas = informacionFacturas
-                    + "Factura " + (datosFactura + 1) + ":\n"
-                    + "Cliente: " + datosFacturacion[datosFactura].getClientName() + "\n"
-                    + "Descripción: " + datosFacturacion[datosFactura].getFixDescription() + "\n"
-                    + "Hora: " + datosFacturacion[datosFactura].getHour() + "\n"
-                    + "Fecha: " + datosFacturacion[datosFactura].getDate() + "\n\n";
+                    + "- FACTURA " + (datosFactura + 1) + ":\n"
+                    + "- CLIENTE: " + datosFacturacion[datosFactura].getClientName() + "\n"
+                    + "- DESCRIPCIÓN: " + datosFacturacion[datosFactura].getFixDescription() + "\n"
+                    + "- HORA: " + datosFacturacion[datosFactura].getHour() + "\n"
+                    + "- FECHA: " + datosFacturacion[datosFactura].getDate() + "\n\n"
+                    + "- MONTO A PAGAR: ₡" + datosFacturacion[datosFactura].getTotalToPay();
         }
 
         JOptionPane.showMessageDialog(null, "Facturas ingresadas:\n\n" + informacionFacturas, "Facturas", JOptionPane.INFORMATION_MESSAGE);
     }
 
+//METODOS DE CAJAS
+    public void MostraringresosDía() {
+        Facturacion infoFecha = new Facturacion();
+        String fechaCompleta = JOptionPane.showInputDialog(null, "Ingrese la fecha para mostrar los ingresos del día (dd/mm/hhhh):", "Ingresos del Día", JOptionPane.QUESTION_MESSAGE);
+
+        if (infoFecha.existeFecha(fechaCompleta, datosFacturacion)) {
+            String mostrasCajadelDia = "";
+
+            for (int i = 0; i < totalFacturas; i++) {
+                Facturacion factura = datosFacturacion[i];
+                if (factura != null && factura.getDate().equals(fechaCompleta)) {
+                    mostrasCajadelDia += "\n - Cliente: " + factura.getClientName()
+                            + "\n - Ingresos del día: " + factura.getTotalToPay() + "\n";
+                }
+            }
+
+            JOptionPane.showMessageDialog(null, "Los ingresos del día para la fecha " + fechaCompleta + " son: " + mostrasCajadelDia + "El total de ingresos del día es: " + ingresosDelDia, "Cajas", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay ingresos registrados para la fecha ingresada.", "Ingresos del Día", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
 }
