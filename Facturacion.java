@@ -58,12 +58,24 @@ public class Facturacion {
     
     // Método para validar la existencia de un cliente en el arreglo de Clientes_FixTech
 public boolean existeCliente(String nombreCliente, Clientes_FixTech[] datosClientes) {
-    for (Clientes_FixTech cliente : datosClientes) {
+    int i;
+    for (i = 0; i < datosClientes.length; i++) {
+        Clientes_FixTech cliente = datosClientes[i];
         if (cliente != null && cliente.getName().equals(nombreCliente)) {
             return true; // Cliente encontrado
         }
     }
     return false; // Cliente no encontrado
 }
-
+    
+public boolean existeFecha(String fechaFactura, Facturacion[] datosFacturacion) {
+    int i= 0;
+    for (i = 0; i < datosFacturacion.length; i++) {
+        Facturacion factura = datosFacturacion[i];
+        if (factura != null && factura.getDate().equals(fechaFactura)) {
+            return true; // Fecha encontrada
+        }
+    }
+    return false; // Fecha no encontrada
+}
 }
